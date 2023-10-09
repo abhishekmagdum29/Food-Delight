@@ -1,6 +1,6 @@
 import AccordianItem from "./AccordianItem";
 import { useState } from "react";
-import { MdKeyboardArrowDown } from "react-icons/md";
+import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
 
 const RestaurantCategory = ({ data }) => {
   if (!data) return null;
@@ -19,8 +19,11 @@ const RestaurantCategory = ({ data }) => {
         <p className="text-[#3D4152] text-lg p-2 font-bold ">
           {title} ({itemCards.length})
         </p>
-
-        <MdKeyboardArrowDown className="text-3xl font-semibold mr-4 text-[#3D4152]" />
+        {showItem ? (
+          <MdKeyboardArrowUp className="text-3xl font-semibold mr-4 text-[#3D4152]" />
+        ) : (
+          <MdKeyboardArrowDown className="text-3xl font-semibold mr-4 text-[#3D4152]" />
+        )}
       </div>
       {showItem && <AccordianItem items={itemCards} />}
     </div>

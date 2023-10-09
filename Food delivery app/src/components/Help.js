@@ -9,11 +9,11 @@ const Section = ({ id, title, description, isVisible, setIsVisible }) => {
       onClick={() => (isVisible ? setIsVisible(false) : setIsVisible(true))}
     >
       <div className="flex justify-between items-center">
-        <h3 className=" text-base font-medium">{title}</h3>
+        <h3 className=" text-base font-semibold">{title}</h3>
         {isVisible ? <SlArrowUp /> : <SlArrowDown className="cursor-pointer" />}
       </div>
       {isVisible && (
-        <p className="text-sm pt-2 text-slate-500">{description}</p>
+        <p className="text-sm pt-2 text-slate-500 font-medium">{description}</p>
       )}
     </div>
   );
