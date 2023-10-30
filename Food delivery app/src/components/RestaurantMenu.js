@@ -1,6 +1,7 @@
 import { ShimmerMenu } from "./shimmer";
 import { CDN_URL } from "../utils/constants";
 import { useParams } from "react-router-dom";
+import { useState } from "react";
 import useRestaurntMenu from "../utils/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCatagory";
 import { IoTimeOutline } from "react-icons/io5";
@@ -8,10 +9,11 @@ import { IoTimeOutline } from "react-icons/io5";
 const RestaurantMenu = () => {
   const { resId } = useParams();
 
-  const restaurantMenu = useRestaurntMenu(resId); // custom hook for fetching indivisual restaurant data
- 
+  const [showIndex, setShowIndex] = useState(0);
 
-  if (!restaurantMenu) return <ShimmerMenu/>
+  const restaurantMenu = useRestaurntMenu(resId); // custom hook for fetching indivisual restaurant data
+
+  if (!restaurantMenu) return <ShimmerMenu />;
 
   const {
     name,
@@ -71,8 +73,13 @@ const RestaurantMenu = () => {
         </div>
       </div>
 
-      {catagories.map((category) => (
-        <RestaurantCategory key={category?.card?.card?.title} data={category} />
+      {catagories.map((category, index) => (
+        <RestaurantCategory
+          key={category?.card?.card?.title}
+          data={category}
+          showItems={index === showIndex ? true : false}
+          setShowIndex={() => setShowIndex(index)}
+        />
       ))}
     </>
   );

@@ -68,7 +68,7 @@ const Body = () => {
             let data = listOfRestaurants.filter(
               (res) => res?.info?.sla?.deliveryTime < 20
             );
-            console.log(data);
+
             setfilteredRestaurants(data);
           }}
         >
