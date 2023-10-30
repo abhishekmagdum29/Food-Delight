@@ -8,8 +8,6 @@ const RestaurantCategory = (props) => {
 
   const { title, itemCards } = data?.card?.card;
 
-  
-
   const handleClick=()=>{
      props.setShowIndex()
   }
