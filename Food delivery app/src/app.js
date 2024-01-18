@@ -5,7 +5,6 @@ import Body from "./components/Body";
 import About from "./components/About";
 import Error from "./components/Error";
 import Contact from "./components/Contact";
-import Footer from "./components/Footer";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import { ShimmerMenu } from "./components/shimmer";
@@ -13,7 +12,7 @@ import Cart from "./components/Cart";
 import store from "./utils/store";
 import { Provider } from "react-redux";
 import { getTotal } from "./utils/cartSlice";
-
+import Footer from "./components/Footer";
 
 const Help = lazy(() => import("./components/Help"));
 
@@ -22,7 +21,7 @@ const Applayout = () => {
 
   return (
     <Provider store={store}>
-      <div className="app">
+      <div >
         <Header />
         <Outlet />
         <Footer/>
@@ -58,7 +57,7 @@ const appRouter = createBrowserRouter([
       {
         path: "/help",
         element: (
-          <Suspense fallback={<ShimmerMenu/>}>
+          <Suspense fallback={<ShimmerMenu />}>
             <Help />
           </Suspense>
         ),

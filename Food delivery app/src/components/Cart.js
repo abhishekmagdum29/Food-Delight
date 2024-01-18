@@ -21,12 +21,12 @@ const Cart = () => {
   );
 
   const cartTotalAmount = useSelector((store) => store.cart.cartTotalAmount);
-  
+
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getTotal());
-  }, [cartItems, dispatch]);
+  }, [cartItems]);
 
   const increaseItemsCount = (item) => {
     dispatch(addItem(item));
@@ -87,7 +87,7 @@ const Cart = () => {
             >
               <div className="flex my-2 items-center w-[70%] ">
                 <img
-                  className="w-[65px] mr-2 rounded-md"
+                  className="w-[70px] mr-2 rounded-md"
                   src={CDN_URL + item?.card?.info?.imageId}
                   alt="img"
                 />
@@ -126,6 +126,7 @@ const Cart = () => {
           <div className="w-[88%] border mx-auto my-3 p-3 bg-white ">
             <div className="flex items-center ">
               <input
+                className="cursor-pointer"
                 type="checkbox"
                 defaultChecked={checked}
                 onChange={() => setChecked(!checked)}
@@ -161,13 +162,13 @@ const Cart = () => {
             </div>
             <div className="flex justify-between items-center mt-2 border-b-2 border-black">
               <p className="text-sm text-[#3D4152] ml-3 mb-4">
-                Govt Taxes & Other Charges
+                GST & Restaurant Charges
               </p>
               <p className="text-sm text-[#3D4152]  mr-2 mb-4">₹ 18</p>
             </div>
             <div className="flex justify-between items-center mt-2 text-[#3D4152]">
               <p className="ml-3 font-semibold text-lg ">TO PAY</p>
-              <p className="mr-2 font-bold text-lg">₹ {(cartTotalAmount) + 18}</p>
+              <p className="mr-2 font-bold text-lg">₹ {cartTotalAmount + 18}</p>
             </div>
           </div>
         </div>

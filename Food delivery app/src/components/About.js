@@ -1,6 +1,6 @@
 import avatar from "../assets/images/avatar.jpg";
 import { SiGithub, SiLinkedin, SiGoogle } from "react-icons/si";
-
+import { FaXTwitter } from "react-icons/fa6";
 
 const About = () => {
   return (
@@ -17,27 +17,44 @@ const About = () => {
           />
           <p className="text-lg text-[#3D4152] font-bold">Abhishek Magdum</p>
           <p className="text-lg text-[#3D4152] font-bold">Frontend Developer</p>
-          <div className="bg-slate-900 text-white p-4 rounded-sm w-[322px]">
+          <div className="bg-slate-900 text-white p-4 rounded-sm w-[322px] ">
             <p className="pb-2 text-lg font-normal   text-center text-[#a7aecd]">
               HTML5 | CSS3 | Tailwind CSS |
             </p>
             <p className="pb-3 text-lg font-normal mr-3  text-center text-[#a7aecd]">
               Javascript | React.js
             </p>
-            <div className=" text-[2em] text-center w-full flex items-center justify-center mt-2">
-              <a href={"https://github.com/abhishekmagdum29"} className="mb-2 pr-4 hover:scale-105 " target="_blank">
+            <div className=" text-[2em] text-center w-full flex items-center justify-center mt-2 ">
+              <a
+                href={"https://github.com/abhishekmagdum29"}
+                className="mb-2 pr-4 hover:scale-105 "
+                target="_blank"
+              >
                 <i className="bg-[#333] icon--i">
-                  <SiGithub className="m-auto hover:text-sky-600" />
+                  <SiGithub className=" hover:text-sky-600" />
                 </i>
               </a>
               <a href="" className="mb-2 pr-4 hover:scale-105" target="_blank">
                 <i className="bg-[#0e76a8] icon--i">
-                  <SiLinkedin className="m-auto hover:text-sky-600" />
+                  <SiLinkedin className=" hover:text-sky-600" />
                 </i>
               </a>
-              <a href={"mailto:abhishekmagdum76@gmail.com"} className="mb-2 hover:scale-105">
+              <a
+                href={"https://twitter.com/Abhishek_m29"}
+                className="mb-2 hover:scale-105"
+                target="_blank"
+              >
                 <i className="bg-[#ea4335] icon--i">
-                  <SiGoogle className="m-auto hover:text-sky-600" />
+                  <FaXTwitter className=" hover:text-sky-600" />
+                </i>
+              </a>
+              <a
+                href={"mailto:abhishekmagdum76@gmail.com"}
+                className="mb-2 hover:scale-105"
+                target="_blank"
+              >
+                <i className="bg-[#ea4335] icon--i">
+                  <SiGoogle className="ml-3 hover:text-sky-600" />
                 </i>
               </a>
             </div>

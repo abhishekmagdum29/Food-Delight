@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const CartEmptyImage = () => {
   return (
     <div className="h-[76vh]">
-      <div className="mx-auto w-[405px] h-[325px] mt-28">
+      <div className="mx-auto w-[405px] h-[325px] mt-[125px]">
         <img src={empty_cart_image_URL} alt="img" className="w-full" />
         <div className="w-full mx-auto mt-5">
           <p className="text-center text-xl font-semibold text-[#3D4152]">

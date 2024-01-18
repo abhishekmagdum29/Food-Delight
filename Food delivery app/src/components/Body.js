@@ -19,10 +19,10 @@ const Body = () => {
     let json = await data.json();
 
     setlistOfRestaurants(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setfilteredRestaurants(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
 
@@ -43,7 +43,7 @@ const Body = () => {
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
-    <div>
+    <>
       <div className="mx-auto w-[870px]  mt-28  ">
         <button
           className="m-3 w-24 px-2 py-2 rounded-xl outline-0 border border-[#00000028] text-[#3D4152] hover:text-white
@@ -116,7 +116,7 @@ const Body = () => {
         </button>
       </div>
 
-      <div className="flex flex-wrap justify-center items-center   my-5 gap-6">
+      <div className="flex flex-wrap justify-center items-center my-5 gap-6">
         {filteredRestaurants.map((restaurant) => {
           return (
             <Link
@@ -128,7 +128,7 @@ const Body = () => {
           );
         })}
       </div>
-    </div>
+    </>
   );
 };
 

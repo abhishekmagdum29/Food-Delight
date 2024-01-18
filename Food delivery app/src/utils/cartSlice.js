@@ -26,8 +26,9 @@ const cartSlice = createSlice({
       const itemIndex = state.items.findIndex(
         (item) => item?.card?.info?.id === action.payload?.card?.info?.id
       );
+
       if (state.items[itemIndex].cartQuantity > 1) {
-        state.items[itemIndex].cartQuantity -= 1;
+        state.items[itemIndex].cartQuantity += -1;
       } else if (state.items[itemIndex].cartQuantity === 1) {
         const newCartItems = state.items.filter(
           (item) => item?.card?.info?.id !== action.payload?.card?.info?.id
@@ -37,18 +38,18 @@ const cartSlice = createSlice({
     },
 
     clearItem: (state) => {
-      state.items.length = 0;
+      state.items = [];
     },
 
-    getTotal: (state, action) => {
+    getTotal: (state) => {
       let { total, quantity } = state.items.reduce(
         (cartTotal, item) => {
+          let { price, defaultPrice } = item?.card?.info;
           const itemTotal =
-           Math.floor((item?.card?.info?.price/100 || item?.card?.info?.defaultPrice/100)) *
-            item.cartQuantity;
+            Math.floor(price / 100 || defaultPrice / 100) * item?.cartQuantity;
 
           cartTotal.total += itemTotal;
-          cartTotal.quantity += item.cartQuantity;
+          cartTotal.quantity += item?.cartQuantity;
 
           return cartTotal;
         },

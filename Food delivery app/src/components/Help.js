@@ -20,8 +20,8 @@ const Section = ({ id, title, description, isVisible, setIsVisible }) => {
 };
 
 const Help = () => {
-  const [visibleSection, setVisibleSection] =
-    useState(""); /* Initially description of all questions are hidden */
+  /* Initially description of all questions are hidden */
+  const [visibleSection, setVisibleSection] = useState("");
 
   return (
     <div className="bg-slate-50 w-[80vw] flex-grow font-poppins mx-auto mt-28 border shadow-lg">
@@ -31,6 +31,7 @@ const Help = () => {
       {FAQ.map((question) => {
         return (
           <Section
+          
             key={question.id}
             id={question.id}
             title={question.title}

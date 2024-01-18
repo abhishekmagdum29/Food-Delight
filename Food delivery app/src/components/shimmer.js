@@ -39,7 +39,7 @@ export const Shimmer = () => {
 export const ShimmerMenu = () => {
   return (
     <div>
-      <div className="border mx-auto w-[68%] bg-gray-200 mt-2  h-[288px]"></div>
+      <div className="border mx-auto w-[68%] bg-gray-200 mt-[115px] rounded-xl  h-[288px]"></div>
       {Array(20)
         .fill("")
         .map((element, index) => (

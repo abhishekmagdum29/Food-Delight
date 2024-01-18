@@ -1,15 +1,12 @@
 import { ShimmerMenu } from "./shimmer";
 import { CDN_URL } from "../utils/constants";
 import { useParams } from "react-router-dom";
-import { useState } from "react";
 import useRestaurntMenu from "../utils/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCatagory";
 import { IoTimeOutline } from "react-icons/io5";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
-
-  const [showIndex, setShowIndex] = useState(0);
 
   const restaurantMenu = useRestaurntMenu(resId); // custom hook for fetching indivisual restaurant data
 
@@ -44,9 +41,7 @@ const RestaurantMenu = () => {
         <div className="ml-8">
           <div>
             <p className="text-3xl font-semibold">{name}</p>
-            <p className="font-medium mt-2 ml-1 text-lg">
-              {cuisines.join(", ")}
-            </p>
+            <p className="font-medium mt-2 ml text-lg">{cuisines.join(", ")}</p>
             <p className=" mt-1 font-light">
               {areaName}, {locality}
             </p>
@@ -73,13 +68,8 @@ const RestaurantMenu = () => {
         </div>
       </div>
 
-      {catagories.map((category, index) => (
-        <RestaurantCategory
-          key={category?.card?.card?.title}
-          data={category}
-          showItems={index === showIndex ? true : false}
-          setShowIndex={() => setShowIndex(index)}
-        />
+      {catagories.map((category) => (
+        <RestaurantCategory key={category?.card?.card?.title} data={category} />
       ))}
     </>
   );

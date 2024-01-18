@@ -1,22 +1,19 @@
+import { useState } from "react";
 import AccordianItem from "./AccordianItem";
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
 
-const RestaurantCategory = (props) => {
-  let { data, showItems } = props;
+const RestaurantCategory = ({ data }) => {
+  const [showItems, setShowItems] = useState(false);
 
   if (!data) return null;
 
   const { title, itemCards } = data?.card?.card;
 
-  const handleClick=()=>{
-     props.setShowIndex()
-  }
-
   return (
     <div className="my-4  mx-auto w-6/12 bg-gray-100 shadow-lg p-4  rounded-md">
       <div
         className="flex justify-between items-center cursor-pointer "
-        onClick={() => handleClick()}
+        onClick={() => setShowItems(!showItems)}
       >
         <p className="text-[#3D4152] text-lg p-2 font-bold ">
           {title} ({itemCards.length})

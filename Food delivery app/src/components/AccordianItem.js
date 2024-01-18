@@ -44,9 +44,7 @@ const AccordianItem = ({ items }) => {
             />
             <button
               className=" px-2 py-1 mt-2 w-20 ml-10 rounded-lg bg-red-600 text-white hover:bg-red-500 "
-              onClick={() => {
-                handleAddItem(item);
-              }}
+              onClick={() => handleAddItem(item)}
             >
               Add
             </button>
