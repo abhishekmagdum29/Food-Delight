@@ -6,7 +6,7 @@ const Footer = () => {
   let year = new Date().getFullYear();
 
   return (
-    <div className="hidden md:grid w-full grid-cols-12 p-8 text-gray-200 bg-gray-950 text-md">
+    <div className="hidden md:grid w-full mt-[172px] grid-cols-12 p-8 text-gray-200 bg-gray-950 text-md ">
       <div className="col-span-2"></div>
       <div className="col-span-2 ">
         <div className="flex items-center">
