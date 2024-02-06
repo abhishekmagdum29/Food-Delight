@@ -11,8 +11,8 @@ const Body = () => {
   const [listOfRestaurants, setlistOfRestaurants] = useState([]);
   const [filteredRestaurants, setfilteredRestaurants] = useState([]);
   const [searchText, setsearchText] = useState("");
-  
-  const [animationParent]=useAutoAnimate()
+
+  const [animationParent] = useAutoAnimate();
 
   useEffect(() => {
     fetchApi();
@@ -95,7 +95,7 @@ const Body = () => {
         >
           Pure Veg
         </button>
-     
+
         <input
           className="border border-[#00000028] w-[390px] px-2 py-2 rounded-xl outline-0 mx-4 focus:outline-none focus:border-red-500 shadow-md"
           type="text"
@@ -127,7 +127,6 @@ const Body = () => {
         >
           Search
         </button>
-      
       </div>
 
       <div className="flex flex-wrap justify-center items-center my-5 gap-6">
@@ -137,7 +136,7 @@ const Body = () => {
               key={restaurant.info.id}
               to={"/restaurants/" + restaurant.info.id}
             >
-              <RestaurantCard resData={restaurant} ref={animationParent}/>
+              <RestaurantCard resData={restaurant} ref={animationParent} />
             </Link>
           );
         })}

@@ -14,7 +14,7 @@ const Footer = () => {
 
           <h1 className="text-3xl font-bold italic">Food Delight</h1>
         </div>
-        <p className="py-4 pr-4 ml-10 font-light">© {year} Abhishek Magdum</p>
+        <p className="py-4 pr-4 ml-16 text-sm font-medium text-gray-400">© {year} Food Delight</p>
       </div>
       <div className="col-span-2 ml-16">
         <h1 className="text-lg font-bold text-gray-200">Company</h1>
