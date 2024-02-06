@@ -4,11 +4,15 @@ import { Shimmer } from "./shimmer";
 import { Link } from "react-router-dom";
 import { swiggy_URL } from "../utils/constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { AiOutlineClose } from "react-icons/ai";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 const Body = () => {
   const [listOfRestaurants, setlistOfRestaurants] = useState([]);
   const [filteredRestaurants, setfilteredRestaurants] = useState([]);
   const [searchText, setsearchText] = useState("");
+  
+  const [animationParent]=useAutoAnimate()
 
   useEffect(() => {
     fetchApi();
@@ -26,12 +30,17 @@ const Body = () => {
     );
   };
 
+  const clearSearchText = () => {
+    setsearchText("");
+    setfilteredRestaurants([]);
+  };
+
   const onlineStatus = useOnlineStatus();
 
   if (onlineStatus === false) {
     return (
-      <div className="w-3/4 mt-44 text-center text-black mx-auto h-[100vh]  ">
-        <p className="text-4xl font-bold">
+      <div className="w-3/4 mt-64 text-center text-red-600 mx-auto h-[100vh]  ">
+        <p className="text-5xl font-bold">
           No internet connectivity. Please check your network
         </p>
       </div>
@@ -44,7 +53,7 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="mx-auto w-[870px]  mt-28  ">
+      <div className="mx-auto w-[920px] flex justify-evenly items-center mt-28  ">
         <button
           className="m-3 w-24 px-2 py-2 rounded-xl outline-0 border border-[#00000028] text-[#3D4152] hover:text-white
           transition-all ease-in-out duration-300
@@ -59,7 +68,6 @@ const Body = () => {
         >
           Rating 4+
         </button>
-
         <button
           className="m-3 w-28 px-2 py-2 rounded-xl outline-0 border border-[#00000028] text-[#3D4152] hover:text-white
           transition-all ease-in-out duration-300
@@ -74,7 +82,6 @@ const Body = () => {
         >
           Fast Delivery
         </button>
-
         <button
           className="m-3 w-24 px-2 py-2 rounded-xl outline-0 border border-[#00000028] text-[#3D4152] hover:text-white
           transition-all ease-in-out duration-300
@@ -88,32 +95,39 @@ const Body = () => {
         >
           Pure Veg
         </button>
-
+     
         <input
-          className="border border-[#00000028] w-[380px] px-2 py-2 rounded-xl outline-0 mx-4 focus:outline-none focus:border-red-500 shadow-md"
+          className="border border-[#00000028] w-[390px] px-2 py-2 rounded-xl outline-0 mx-4 focus:outline-none focus:border-red-500 shadow-md"
           type="text"
-          placeholder="Search for restaurant"
+          placeholder="Search for restaurant and food"
           value={searchText}
           onChange={(e) => {
             setsearchText(e.target.value);
           }}
         ></input>
-
+        {searchText && (
+          <AiOutlineClose
+            className="relative right-14 text-[#3D4152] text-lg cursor-pointer"
+            onClick={clearSearchText}
+          />
+        )}
         <button
           className="border border-[#00000028] px-2 py-2 outline-0 rounded-xl text-[#3D4152] m-1 hover:text-white
           transition-all ease-in-out duration-300
           hover:bg-[#ff0000cb]"
           onClick={() => {
             let filteredList = listOfRestaurants.filter((res) => {
-              return res?.info?.name
-                ?.toLowerCase()
-                ?.includes(searchText.toLowerCase());
+              return res?.info?.cuisines
+                .toString()
+                .toLowerCase()
+                .includes(searchText.toLowerCase());
             });
             setfilteredRestaurants(filteredList);
           }}
         >
           Search
         </button>
+      
       </div>
 
       <div className="flex flex-wrap justify-center items-center my-5 gap-6">
@@ -123,7 +137,7 @@ const Body = () => {
               key={restaurant.info.id}
               to={"/restaurants/" + restaurant.info.id}
             >
-              <RestaurantCard resData={restaurant} />
+              <RestaurantCard resData={restaurant} ref={animationParent}/>
             </Link>
           );
         })}
