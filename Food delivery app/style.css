@@ -29,3 +29,8 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #e80505;
 }
+
+.toastBody {
+  font-family: "Atlas Grotesk Web", Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+}

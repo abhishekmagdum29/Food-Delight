@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { Bounce, Slide, Zoom, toast } from "react-toastify";
 
 const cartSlice = createSlice({
   name: "cart",
@@ -16,9 +17,19 @@ const cartSlice = createSlice({
 
       if (itemIndex >= 0) {
         state.items[itemIndex].cartQuantity += 1;
+        toast.success("item added to cart", {
+          position: "bottom-right",
+          autoClose: 2000,
+          transition: Zoom,
+        });
       } else {
         const tempProduct = { ...action.payload, cartQuantity: 1 };
         state.items.push(tempProduct);
+        toast.success("item added to cart", {
+          position: "bottom-right",
+          autoClose: 2000,
+          transition: Zoom,
+        });
       }
     },
 

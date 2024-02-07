@@ -1,6 +1,8 @@
 import { addItem } from "../utils/cartSlice";
 import { CDN_URL } from "../utils/constants";
 import { useDispatch } from "react-redux";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AccordianItem = ({ items }) => {
   if (!items) return null;
@@ -13,6 +15,7 @@ const AccordianItem = ({ items }) => {
 
   return (
     <>
+    <ToastContainer bodyClassName="toastBody" />
       {items.map((item) => (
         <div
           key={item?.card?.info?.id}
@@ -50,8 +53,8 @@ const AccordianItem = ({ items }) => {
             </button>
           </div>
         </div>
-        //
       ))}
+      
     </>
   );
 };
