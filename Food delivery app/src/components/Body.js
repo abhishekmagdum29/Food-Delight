@@ -5,14 +5,11 @@ import { Link } from "react-router-dom";
 import { swiggy_URL } from "../utils/constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import { AiOutlineClose } from "react-icons/ai";
-import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 const Body = () => {
   const [listOfRestaurants, setlistOfRestaurants] = useState([]);
   const [filteredRestaurants, setfilteredRestaurants] = useState([]);
   const [searchText, setsearchText] = useState("");
-
-  const [animationParent] = useAutoAnimate();
 
   useEffect(() => {
     fetchApi();
@@ -136,7 +133,7 @@ const Body = () => {
               key={restaurant.info.id}
               to={"/restaurants/" + restaurant.info.id}
             >
-              <RestaurantCard resData={restaurant} ref={animationParent} />
+              <RestaurantCard resData={restaurant} />
             </Link>
           );
         })}

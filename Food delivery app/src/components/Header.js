@@ -12,7 +12,7 @@ const Header = () => {
   const dispatch = useDispatch();
 
   const cartItems = useSelector((store) => store.cart.items);
-  console.log(cartItems);
+  
 
   useEffect(() => {
     dispatch(getTotal());
