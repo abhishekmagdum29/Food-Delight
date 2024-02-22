@@ -12,7 +12,7 @@ const RestaurantMenu = () => {
 
   if (!restaurantMenu) return <ShimmerMenu />;
   
-  console.log("menu",restaurantMenu);
+ 
 
   const {
     name,
