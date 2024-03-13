@@ -11,8 +11,6 @@ const RestaurantMenu = () => {
   const restaurantMenu = useRestaurntMenu(resId); // custom hook for fetching indivisual restaurant data
 
   if (!restaurantMenu) return <ShimmerMenu />;
-  
- 
 
   const {
     name,
@@ -23,10 +21,10 @@ const RestaurantMenu = () => {
     locality,
     areaName,
     sla,
-  } = restaurantMenu?.cards[2]?.card?.card?.info;
+  } = restaurantMenu?.cards[0]?.card?.card?.info;
 
   const catagories =
-    restaurantMenu?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+    restaurantMenu?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
       (c) =>
         c.card?.card?.["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"

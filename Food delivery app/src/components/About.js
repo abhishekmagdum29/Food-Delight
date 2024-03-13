@@ -22,7 +22,7 @@ const About = () => {
               HTML5 | CSS3 | Tailwind CSS |
             </p>
             <p className="pb-3 text-lg font-normal mr-3  text-center text-[#a7aecd]">
-              Javascript | React.js
+              Javascript | React 
             </p>
             <div className=" text-[2em] text-center w-full flex items-center justify-center mt-2 ">
               <a
@@ -34,7 +34,7 @@ const About = () => {
                   <SiGithub className=" hover:text-sky-600" />
                 </i>
               </a>
-              <a href="" className="mb-2 pr-4 hover:scale-105" target="_blank">
+              <a href={"https://www.linkedin.com/in/abhishek-magdum-150148296/"} className="mb-2 pr-4 hover:scale-105" target="_blank">
                 <i className="bg-[#0e76a8] icon--i">
                   <SiLinkedin className=" hover:text-sky-600" />
                 </i>
