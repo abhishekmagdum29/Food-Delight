@@ -11,6 +11,8 @@ const Body = () => {
   const [filteredRestaurants, setfilteredRestaurants] = useState([]);
   const [searchText, setsearchText] = useState("");
 
+  console.log(listOfRestaurants);
+
   useEffect(() => {
     fetchApi();
   }, []);
@@ -22,6 +24,7 @@ const Body = () => {
     setlistOfRestaurants(
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
+
     setfilteredRestaurants(
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
@@ -29,7 +32,7 @@ const Body = () => {
 
   const clearSearchText = () => {
     setsearchText("");
-    setfilteredRestaurants([]);
+    location.reload();
   };
 
   const onlineStatus = useOnlineStatus();
@@ -44,7 +47,7 @@ const Body = () => {
     );
   }
 
-  if (!listOfRestaurants) return null;
+  // if (!listOfRestaurants) return null;
 
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
@@ -94,19 +97,21 @@ const Body = () => {
         </button>
 
         <input
-          className="border border-[#00000028] w-[390px] px-2 py-2 rounded-xl outline-0 mx-4 focus:outline-none focus:border-red-500 shadow-md"
+          className="border border-[#00000028] w-[390px] px-2 py-2 rounded-xl outline-0 mx-4 focus:outline-none focus:border-green-600 shadow-md"
           type="text"
-          placeholder="Search for restaurant and food"
+          placeholder="Search for restaurants and food"
           value={searchText}
           onChange={(e) => {
             setsearchText(e.target.value);
           }}
         ></input>
         {searchText && (
-          <AiOutlineClose
-            className="relative right-14 text-[#3D4152] text-lg cursor-pointer"
-            onClick={clearSearchText}
-          />
+          <div className="relative right-14 flex justify-center items-center w-6 h-6  hover:bg-slate-300 rounded-full cursor-pointer  ">
+            <AiOutlineClose
+              className=" text-[#3D4152]  "
+              onClick={clearSearchText}
+            />
+          </div>
         )}
         <button
           className="border border-[#00000028] px-2 py-2 outline-0 rounded-xl text-[#3D4152] m-1 hover:text-white
@@ -114,10 +119,16 @@ const Body = () => {
           hover:bg-[#ff0000cb]"
           onClick={() => {
             let filteredList = listOfRestaurants.filter((res) => {
-              return res?.info?.cuisines
-                .toString()
-                .toLowerCase()
-                .includes(searchText.toLowerCase());
+              return (
+                res?.info?.cuisines
+                  .toString()
+                  .toLowerCase()
+                  .includes(searchText.toLowerCase()) ||
+                res?.info?.name
+                  .toString()
+                  .toLowerCase()
+                  .includes(searchText.toLowerCase())
+              );
             });
             setfilteredRestaurants(filteredList);
           }}
