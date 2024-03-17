@@ -11,8 +11,6 @@ const Body = () => {
   const [filteredRestaurants, setfilteredRestaurants] = useState([]);
   const [searchText, setsearchText] = useState("");
 
-  console.log(listOfRestaurants);
-
   useEffect(() => {
     fetchApi();
   }, []);
@@ -32,7 +30,7 @@ const Body = () => {
 
   const clearSearchText = () => {
     setsearchText("");
-    location.reload();
+    setfilteredRestaurants(listOfRestaurants);
   };
 
   const onlineStatus = useOnlineStatus();
@@ -130,7 +128,9 @@ const Body = () => {
                   .includes(searchText.toLowerCase())
               );
             });
-            setfilteredRestaurants(filteredList);
+            !filteredList
+              ? setfilteredRestaurants([])
+              : setfilteredRestaurants(filteredList);
           }}
         >
           Search
@@ -138,16 +138,20 @@ const Body = () => {
       </div>
 
       <div className="flex flex-wrap justify-center items-center my-14 gap-6">
-        {filteredRestaurants.map((restaurant) => {
-          return (
-            <Link
-              key={restaurant.info.id}
-              to={"/restaurants/" + restaurant.info.id}
-            >
-              <RestaurantCard resData={restaurant} />
-            </Link>
-          );
-        })}
+        {filteredRestaurants.length === 0 ? (
+          <p className="text-lg font-semibold text-[#3D4152]">{`No match found for "${searchText}"`}</p>
+        ) : (
+          filteredRestaurants.map((restaurant) => {
+            return (
+              <Link
+                key={restaurant.info.id}
+                to={"/restaurants/" + restaurant.info.id}
+              >
+                <RestaurantCard resData={restaurant} />
+              </Link>
+            );
+          })
+        )}
       </div>
     </>
   );

@@ -25,16 +25,16 @@ const RestaurantMenu = () => {
 
   const catagories =
     restaurantMenu?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
-      (c) =>
-        c.card?.card?.["@type"] ===
+      (card) =>
+        card.card?.card?.["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
 
   return (
     <>
-      <div className="border mx-auto mt-28 w-3/4 flex r py-10 bg-[#1d1d47] text-white rounded-xl shadow-md">
+      <div className="border mx-auto mt-28 w-[70%] flex  py-10 bg-[#35495e] text-white rounded-xl shadow-md">
         <img
-          className="w-[320px] ml-56  rounded-lg"
+          className="w-[345px] ml-48 rounded-lg"
           src={CDN_URL + cloudinaryImageId}
           alt="img"
         />

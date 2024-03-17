@@ -10,7 +10,7 @@ const RestaurantCategory = ({ data }) => {
   const { title, itemCards } = data?.card?.card;
 
   return (
-    <div className="my-4  mx-auto w-6/12 bg-gray-100 shadow-lg p-4  rounded-md">
+    <div className="my-6  mx-auto w-[70%] bg-gray-100 shadow-lg p-4  rounded-md">
       <div
         className="flex justify-between items-center cursor-pointer "
         onClick={() => setShowItems(!showItems)}

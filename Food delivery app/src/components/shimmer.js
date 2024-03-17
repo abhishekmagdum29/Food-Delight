@@ -25,13 +25,13 @@ export const Shimmer = () => {
 export const ShimmerMenu = () => {
   return (
     <div>
-      <div className="border mx-auto w-[68%] bg-gray-300 mt-[115px] rounded-xl  h-[288px] animate-pulse"></div>
+      <div className="border mx-auto w-[70%] bg-gray-300 mt-[115px] rounded-xl  h-[288px] animate-pulse"></div>
       {Array(20)
         .fill("")
         .map((element, index) => (
           <div
             key={index}
-            className="my-4  h-[75px] rounded-md mx-auto w-6/12 bg-gray-300"
+            className="my-4 w-[70%] h-[75px] rounded-md mx-auto  bg-gray-300"
           ></div>
         ))}
     </div>

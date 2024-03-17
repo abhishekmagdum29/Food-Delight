@@ -12,6 +12,7 @@ import store from "./utils/store";
 import { Provider } from "react-redux";
 import { getTotal } from "./utils/cartSlice";
 import Footer from "./components/Footer";
+import Error from "./components/Error";
 
 const Help = lazy(() => import("./components/Help"));
 
@@ -34,7 +35,6 @@ const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <Applayout />,
-
     children: [
       {
         path: "/",
@@ -66,6 +66,7 @@ const appRouter = createBrowserRouter([
         element: <Cart />,
       },
     ],
+    errorElement:<Error/>
   },
 ]);
 

@@ -18,15 +18,15 @@ const cartSlice = createSlice({
       if (itemIndex >= 0) {
         state.items[itemIndex].cartQuantity += 1;
         toast.success("item added to cart", {
-          position: "bottom-right",
+          position: "bottom-left",
           autoClose: 2000,
           transition: Zoom,
         });
       } else {
-        const tempProduct = { ...action.payload, cartQuantity: 1 };
-        state.items.push(tempProduct);
+        const cartProduct = { ...action.payload, cartQuantity: 1 };
+        state.items.push(cartProduct);
         toast.success("item added to cart", {
-          position: "bottom-right",
+          position: "bottom-left",
           autoClose: 2000,
           transition: Zoom,
         });
