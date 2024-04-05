@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { LOGO_URL } from "../utils/constants";
+import logo from "../assets/images/logo.png"
 
 const Footer = () => {
   let year = new Date().getFullYear();
@@ -10,11 +10,13 @@ const Footer = () => {
       <div className="col-span-2"></div>
       <div className="col-span-2 ">
         <div className="flex items-center">
-          <img data-testid="logo" className="w-10 mr-4" src={LOGO_URL}></img>
+          <img data-testid="logo" className="w-10 mr-4" src={logo} alt="img"></img>
 
           <h1 className="text-3xl font-bold italic">Food Delight</h1>
         </div>
-        <p className="py-4 pr-4 ml-16 text-sm font-medium text-gray-400">© {year} Food Delight</p>
+        <p className="py-4 pr-4 ml-16 text-sm font-medium text-gray-400">
+          © {year} Food Delight
+        </p>
       </div>
       <div className="col-span-2 ml-16">
         <h1 className="text-lg font-bold text-gray-200">Company</h1>

@@ -1,5 +1,5 @@
 import React from "react";
-import { empty_cart_image_URL } from "../utils/constants";
+import  empty_cart_image_URL  from "../assets/images/2xempty_cart_yfxml0.webp"
 import { Link } from "react-router-dom";
 
 const CartEmptyImage = () => {

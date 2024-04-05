@@ -1,4 +1,4 @@
-import { LOGO_URL } from "../utils/constants";
+import logo from "../assets/images/logo.png";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
@@ -27,7 +27,7 @@ const Header = () => {
     <div className="flex justify-between items-cente border-b shadow-md mb-3 bg-slate-50 w-full fixed top-0">
       <div className="flex items-center ml-2 ">
         <Link to="/">
-          <img data-testid="logo" className="w-12 m-4" src={LOGO_URL}></img>
+          <img data-testid="logo" className="w-12 m-4" src={logo}></img>
         </Link>
         <Link to="/">
           <p className="text-3xl font-extrabold italic text-[#ff0000d7] m-1">
