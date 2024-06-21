@@ -17,8 +17,6 @@ import Error from "./components/Error";
 const Help = lazy(() => import("./components/Help"));
 
 const Applayout = () => {
-  store.dispatch(getTotal());
-
   return (
     <Provider store={store}>
       <div>
@@ -66,7 +64,7 @@ const appRouter = createBrowserRouter([
         element: <Cart />,
       },
     ],
-    errorElement:<Error/>
+    errorElement: <Error />,
   },
 ]);
 

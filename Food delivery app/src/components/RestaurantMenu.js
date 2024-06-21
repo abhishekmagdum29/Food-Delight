@@ -11,8 +11,6 @@ const RestaurantMenu = () => {
   const restaurantMenu = useRestaurntMenu(resId); // custom hook for fetching indivisual restaurant data
 
   if (!restaurantMenu) return <ShimmerMenu />;
-  
-  console.log(restaurantMenu);
 
   const {
     name,
@@ -34,7 +32,7 @@ const RestaurantMenu = () => {
 
   return (
     <>
-      <div className="border mx-auto mt-28 w-[70%] flex  py-10 bg-[#35495e] text-white rounded-xl shadow-md">
+      <div className=" mx-auto mt-28  mb-8 w-[70%] flex  py-10 bg-[#35495e] text-white rounded-xl shadow-md  shadow-gray-600">
         <img
           className="w-[345px] ml-48 rounded-lg"
           src={CDN_URL + cloudinaryImageId}

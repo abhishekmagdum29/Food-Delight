@@ -49,7 +49,7 @@ export const FAQ = [
       "Our delivery hours vary for different locations and depends on availability of supply from restaurant partners.",
   },
   {
-    id: 481,
+    id: 480,
     title: "Is single order from many restaurants possible?",
     description:
       "We currently do not support this functionality. However, you can place orders for individual items from different restaurants.",

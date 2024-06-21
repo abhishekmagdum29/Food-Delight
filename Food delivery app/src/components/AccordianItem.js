@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { addItem } from "../utils/cartSlice";
 import { CDN_URL } from "../utils/constants";
 import { useDispatch } from "react-redux";
@@ -39,12 +40,13 @@ const AccordianItem = ({ items }) => {
             </p>
           </div>
 
-          <div className="w-1/5  ">
+          <div className="w-1/5  mt-4">
             <img
               className=" rounded-lg"
               src={CDN_URL + item?.card?.info?.imageId}
               alt=""
             />
+
             <button
               className=" px-2 py-1 mt-2 w-20 ml-[60px] rounded-lg bg-red-600 text-white hover:bg-red-500 "
               onClick={() => handleAddItem(item)}

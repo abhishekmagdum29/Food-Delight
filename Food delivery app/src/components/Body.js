@@ -45,9 +45,9 @@ const Body = () => {
     );
   }
 
-  // if (!listOfRestaurants) return null;
+  // if (!listOfRestaurants) return <Shimmer/>;
 
-  return listOfRestaurants.length === 0 ? (
+  return listOfRestaurants.length == 0 ? (
     <Shimmer />
   ) : (
     <>
@@ -137,7 +137,7 @@ const Body = () => {
         </button>
       </div>
 
-      <div className="flex flex-wrap justify-center items-center my-14 gap-6">
+      <div className="flex flex-wrap justify-center items-center my-14 gap-8">
         {filteredRestaurants.length === 0 ? (
           <p className="text-lg font-semibold text-[#3D4152]">{`No match found for "${searchText}"`}</p>
         ) : (

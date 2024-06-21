@@ -16,6 +16,7 @@ const Cart = () => {
 
   const cartItems = useSelector((store) => store.cart.items);
 
+
   const cartTotalQuantity = useSelector(
     (store) => store.cart.cartTotalQuantity
   );
@@ -48,17 +49,17 @@ const Cart = () => {
         <div className="w-1/2  p-6 mx-6 bg-slate-50 border outline-none shadow-md">
           <div className=" mb-4 bg-white">
             <p className="text-2xl font-semibold p-4 text-[#3D4152]">
-              Delivery address
+            Account
             </p>
             <p className="text-lg font-medium p-4 text-[#3D4152]">
-              Rajarampuri 8th lane, near Moryaa hospital, 416008, Kolhapur
+            To place your order now, log in to your existing account or sign up.
             </p>
           </div>
-          <div className=" my-20 bg-white">
-            <button className="w-28 px-4 py-2  mx-10 text-xl font-semibold rounded-xl my-5 border border-green-600  text-green-600">
+          <div className=" my-12 bg-white">
+            <button className="w-28 px-4 py-2  mx-10 text-xl font-semibold rounded-md my-5 border border-green-600  text-green-600">
               Login
             </button>
-            <button className="w-28 px-4 py-2  text-xl font-semibold rounded-xl my-5 border bg-green-600  text-white">
+            <button className="w-28 px-4 py-2  text-xl font-semibold rounded-md my-5 border bg-green-600  text-white">
               Sign up
             </button>
           </div>
@@ -112,7 +113,7 @@ const Cart = () => {
                     +
                   </button>
                 </div>
-                <p className="text-sm text-[#3D4152] ">
+                <p className="text-sm text-[#3D4152] font-semibold">
                   ₹
                   {Math.floor(
                     item?.card?.info?.price / 100 ||
